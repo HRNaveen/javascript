@@ -96,3 +96,27 @@ console.log(Person);
 delete Person.age;
 console.log(Person.age);
 console.log(Person);
+
+//creating an array
+
+var arr=[10,20,30];
+console.log(arr[0]);
+console.log(arr[1]);
+console.log(arr[2]);
+console.log(arr[3]);
+console.log(arr);
+
+arr[3]="hello";
+console.log(arr[3]);
+console.log(arr);
+console.log(arr.length);
+arr[400]="null";
+console.log(arr);
+console.log(arr.length);
+
+
+//wrapper objecgts
+var s="Hello World";
+console.log(s.length);
+var s1="this is java script";
+console.log(s1.length);
