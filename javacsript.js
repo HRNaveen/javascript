@@ -120,3 +120,144 @@ var s="Hello World";
 console.log(s.length);
 var s1="this is java script";
 console.log(s1.length);
+
+//adding function
+function sayHello(){
+    console.log("Hello");
+}
+sayHello();
+function sayHello1(name,age,address){
+    console.log("Hello "+name+" age = "+age+" address="+address);
+}
+sayHello1("abc",45,"Banglore");
+sayHello1("abc");
+sayHello1("abc",24,"banglore","mumbai");
+
+//how to return a value
+function sayHello2(name,timeOfday){
+    return "Hello "+name+" Time Of day "+timeOfday;
+   // return;
+}
+var returnValue=sayHello2("koushik","Afternoon");
+console.log(returnValue);
+
+var f=function foo(){
+    console.log("Hello");
+};
+f();
+
+var f1=function()
+{
+    console.log("Java Script");
+};
+f1();
+
+//f1=1;
+//f1();
+ 
+
+
+//function as argument
+var func=function(name){
+    console.log("Hello "+name);
+}
+var executor=function(f,name){
+    console.log(f);
+    func(name);
+}
+executor(func,"koushik");
+
+//function on objects
+
+var object1={
+    "testprop":true
+}
+object1.myMethod=function(){
+    console.log("Hello JavaScript");
+};
+object1.myMethod();
+console.log(object1);
+
+var Person1={
+    "firstName":"Koushik",
+    "lastName":"Kothagal",
+    "getFullName":function(){
+       // return Person1.firstName+" "+Person1.lastName;
+       return this.firstName+" "+this.lastName;
+    }
+};
+var fullName=Person1.getFullName();
+console.log(fullName);
+
+var Person2=Person1;
+Person1= {};
+console.log(Person2.getFullName());   //use this keyword insted of using Person1 in return statement
+
+
+
+//code exercise
+
+var Person={
+    "Address":{
+        "Street":"#123,Js road",
+        "Area":"Js",
+        "city":"Banglore",
+        "State":"Karnataka",
+        "isFromState":function(s){
+           /* if(s===this.State){
+                return true;
+            }
+            else{
+                return false;*/
+            return (this.State===s);
+
+            }
+        }
+    }
+
+var result=Person.Address.isFromState("Karnataka");
+console.log(result);
+
+
+//default function arguments
+var add=function(a,b){
+console.log(arguments);
+return a+b;
+}
+console.log(add(10,30,2,4,34,45,3));
+
+
+var add1=function(){
+    console.log(arguments);
+    var i,sum=0;
+    for(i=0;i<arguments.length;i++)
+    {
+        sum+=arguments[i];
+    }
+    return sum;
+    }
+    console.log(add1(10,30,2,4,34,45,3));
+
+
+    //arrays
+
+    var myArray=[10,20,"Hello",{}];
+    console.log(myArray);
+    myArray.push(17);
+    console.log(myArray);
+    myArray.pop();
+    console.log(myArray);
+    myArray.shift();
+    console.log(myArray);
+    myArray.unshift(47);
+    console.log(myArray);
+
+    //forEach loop
+    var arr3=[10,20,"Hello",{}];
+    var myFunction=function(item){
+        console.log("for an element "+item);
+    };
+    arr3.forEach(myFunction);
+
+
+
