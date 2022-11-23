@@ -260,4 +260,161 @@ var add1=function(){
     arr3.forEach(myFunction);
 
 
+    //creating a scoped variable
+
+    var n="koushik";
+   function allocateDepartment(){
+        if(n==="koushik"){
+            var department="Engineering";
+        }
+   }
+   allocateDepartment();
+   //console.log(department);
+
+var m=30;
+var n=50;
+function addd(){
+    var n=10;
+    console.log(n);
+}
+addd();
+console.log(n);
+
+var names="koushik";
+function name1(names){
+    console.log("Hello "+names);
+}
+name1("Hrithik");
+
+
+(function(){
+    var a=10;
+    var b=10;
+    console.log(a+b);
+})();                                 //---------->immediately invoked functional expression(IIFE)
+
+
+//read and write
+//v=20
+var v=10;
+console.log(v);
+
+
+(function(){
+    var a=10;
+    var b=20;
+    z=30;
+    console.log(a);
+    console.log(b);
+    console.log(z);
+})();
+console.log(z);
+
+
+var q=10;
+function outer(){
+    var b=q;
+    console.log(b);
+    function inner(){
+        var c=b;
+        console.log(c);
+        var b=20;
+    }
+    inner();
+
+}
+outer();
+
+
+
+//usinf strict mode
+function mycode(){
+    "use strict";
+    var myName="";
+   // myname="koushik";
+};
+mycode();
+
+
+//closures
+
+var h=10;
+function outer(){
+    b=20;
+    var inner=function(){
+        h++;
+        b++;
+        console.log(h);
+        console.log(b);
+    }
+    //console.log(b);
+    return inner;
+}
+var innerFn=outer();
+innerFn();
+var innerFn2=outer();
+innerFn2();
+
+
+
+//closures in callbacks
+var f=10;
+var funct=function(){
+    console.log(f);
+}
+setTimeout(funct,500);
+console.log("Done");
+
+
+//module pattern
+
+function createPerson(){
+    var firstName="Koushik";
+    var lastName="kothagal";
+    var returnobj={
+        "getFirstName":function(){
+            return firstName;
+        },
+        "getLastName":function(){
+            return lastName;
+        },
+        "setFirstName":function(name){
+            firstName=name;
+        },
+        "setLastName":function(name){
+            lastName=name;
+        }
+
+    };
+    return returnobj;
+}
+var Person5=createPerson();
+console.log(Person5.getFirstName());
+Person5.setFirstName("rama");
+Person5.setLastName("koushik");
+console.log(Person5.getFirstName());
+console.log(Person5.getLastName());
+
+
+var k;
+/*var print=function(){
+    console.log(k);
+}
+for(k=0;k<10;k++){
+setTimeout(print,1000);
+}*/
+
+for(k=0;k<10;k++){
+    (function(currentValueOfI){
+        //var currentValueOfI =k;
+        setTimeout(function(){
+            console.log(currentValueOfI);
+        },1000);
+    })(k);
+}
+
+
+
+
+
 
