@@ -414,7 +414,207 @@ for(k=0;k<10;k++){
 }
 
 
+//cretaing objects
+
+    var emp1={}
+    emp1.firstName="Koushik";
+    emp1.lastName="kothagal";
+    emp1.gender="M";
+    emp1.designation="regional Manager";
+
+
+    var emp2={}
+    emp2.firstName="Michal";
+    emp2.lastName="scott";
+    emp2.gender="M";
+    emp2.designation="Assistant Manager";
+
+    function createEmployeeObject(firstName,lastName,gender,designation){
+        var newObj={};
+        newObj.firstName=firstName;
+        newObj.lastName=lastName;
+        newObj.gender=gender;
+        newObj.designation=designation;
+        return newObj;
+    }
+    var emp3=createEmployeeObject("Jim","Halpert","M","Sales Manager");
+    console.log(emp1);
+    console.log(emp2);
+    console.log(emp3);
+
+
+   function createEmployeeObject1(firstName,lastName,gender,designation){
+        
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.gender=gender;
+        this.designation=designation;
+
+    }
+    var emp4=new createEmployeeObject1("Jim","Halpert","M","Sales Manager");
+    console.log(emp4);
+
+    //difference between regular function and constructor
+
+    var bicycle1= createBicycle(50,20,4);
+    var bicycle2=createBicycle(60,30,1);
+
+    function createBicycle(cadence,speed,gear){
+        var newBicycle={};
+        newBicycle.cadence=cadence;
+        newBicycle.speed=speed;
+        newBicycle.gear=gear;
+        return newBicycle;
+    }
+
+    function Bicycle(cadence,speed,gear){
+        
+        this.cadence=cadence;
+        this.speed=speed;
+        this.gear=gear;
+       
+    }
+    var bicycle3=new Bicycle(70,30,3);
+    console.log(bicycle1);
+    console.log(bicycle2);
+    console.log(bicycle3);
+
+    //type of function execution and this keyword
+
+    function fooo(){
+        console.log("hello");
+        console.log(this);
+    }
+    // fooo();
+
+    //new fooo();
+     
+    var ob={};
+    ob.fo=function(){
+        console.log("Hello");
+        console.log(this);
+    }
+    ob.fo();
+
+    function Bicycles(cadence,speed,gear,tirePressure){
+        this.cadence=cadence;
+        this.speed=speed;
+        this.gear=gear;
+        this.tirePressure=tirePressure;
+        this.inflateTires=function(){
+            this.tirePressure+=3;
+        }
+       
+    }
+    var bicycles1=new Bicycles(50,40,3,94);
+    bicycles1.inflateTires();
+    var bicycles2=new Bicycles(30,20,3,43);
+    bicycles2.inflateTires();
+
+    function Mechanic(name){
+        this.name=name;
+    }
+    var mike=new Mechanic("mike");
+    mike.inflateTires=bicycles1.inflateTires;
+    mike.inflateTires.call(bicycles1);
+    mike.inflateTires.call(bicycles2);
 
 
 
+    console.log(bicycles1);
+    console.log(bicycles2);
 
+
+    //prototype
+
+    function foo4(){};
+    
+    console.log("Prototype foo4 "+foo4.prototype);
+   var newfoo4= new foo4();
+   console.log("Prototype foo4 "+foo4.__proto__);
+
+   function greet(){
+    console.log("Hello");
+   }
+   greet();
+   console.log(greet);
+   console.log(greet.prototype);
+   var newmyobj=new greet();
+   console.log(newmyobj.__proto__);
+   greet.prototype.test="This is the prototype object of greet function";
+   console.log(greet.prototype);
+   console.log(newmyobj.__proto__);
+   console.log(greet.prototype===newmyobj.__proto__);
+   console.log(newmyobj.hello);
+   newmyobj.__proto__.hello="this is the value of prototype";
+   console.log(newmyobj.__proto__.hello);
+   console.log(newmyobj.hello);
+   newmyobj.hello=10;
+   console.log(newmyobj.hello);
+   console.log(newmyobj.__proto__.hello);
+   delete newmyobj.hello;
+   console.log(newmyobj.hello);
+   console.log(newmyobj.__proto__.hello);
+
+   function Employee(name){
+    this.name=name;
+   }
+   var emp1=new Employee("jim");
+   var emp2=new Employee("mic");
+   console.log(emp1);
+   console.log(emp2);
+   console.log(Employee.prototype);
+   Employee.prototype.playpranks=function(){
+    console.log("pranks played!");
+   }
+   console.log(Employee.prototype.playpranks());
+   console.log(emp1.playpranks());
+   console.log(emp2.playpranks());
+   var emp3=new Employee("monk");
+   console.log(emp3.playpranks());
+
+  
+   var simple={};
+   var oj=new Object();
+   console.log(simple);
+   console.log(oj);
+   console.log(Object.prototype);
+   console.log(oj.__prototype__);
+   console.log(simple.__prototype__);
+
+
+   function Student(){};
+   var stud=new Student();
+   console.log(stud);
+   console.log(stud.test);
+   stud.prop="Student";
+   console.log(stud.prop);
+   console.log(stud.__proto__.__proto__===Object.prototype);
+   Object.prototype.grandprop="grandproto";
+   console.log( Object.prototype.grandprop);
+   console.log(stud.grandprop);
+
+   function Employees(name){
+    this.name=name;
+   }
+   var emp4=new Employees("jim");
+   Employees.prototype.getName=function(){
+    return this.name;
+   }
+   console.log(emp4.getName());
+   function Manager(name,dept){
+    this.name=name;
+    this.dept=dept;
+   }
+   var mgr=new Manager("michel","sales");
+   Manager.prototype.getdept=function(){
+    return this.dept;
+   }
+   console.log(mgr.getdept());
+  // console.log(mgr.getName());
+  mgr.__proto__.__proto__=Employees.prototype;
+   console.log(mgr.getName());
+
+Math.
+
+   
